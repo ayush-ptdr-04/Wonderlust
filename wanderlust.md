@@ -31,7 +31,7 @@ Toh basically, yeh dono cheezein milke Express ko batati hain ki tumhare templat
 
 ---
 
-# phase1.A.
+# phase1.A. Routes
 
 - Basic-Set-Up:- setup express and mongoose(for build connection mongoDB and express and create wanderlust data-base) in app.js .
 - create model folder and make Schema and Model in listing.js and export <Listinig> model, and require <Listing> (model) in app.js .
@@ -42,6 +42,12 @@ Toh basically, yeh dono cheezein milke Express ko batati hain ki tumhare templat
 - [edit-&-update-route] :- edit.ejs is form of listing after submit it throw on update route using PUT method and this route update listing with newListing .
 - [delete-route] :- use delete method to delete individual listing .
 
-# phase1.B.
+# phase1.B. Styling
 
--
+- [boilerplate.ejs] :- create layout folder in views, use ejs-mate, helper package of ejs template, it is help to create tamplates of codes, then we can use anywher like: header,fotter,boilerplate this all things use every-where in app. & public>css>style.css and make public folder static using app.use(); and use in template that serve all pages and routes.
+- [navbar.ejs] :- make includes folder in views, use bootstrap navbar, cutomize navbar with add styling , use font-awesome for add icons.
+- [footer.ejs] :- includes>footer.ejs,
+- [Style-Index] :-
+- [Style-New-Listing] :-
+- [Style-Edit-Listing] :-
+- [Style-Show-Listing] :-
