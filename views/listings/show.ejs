@@ -1,7 +1,7 @@
 <%- layout("/layouts/boilerplate.ejs") %>
 <div class="row mt-3">
   <div class="col-8 offset-3">
-    <h1>Listing Details</h1>
+    <h3><%= listing.title %></h3>
   </div>
 
   <div class="card col-6 offset-3 show-card">
@@ -12,7 +12,6 @@
     />
     <div class="card-body">
       <p class="card-text">
-        <b><%= listing.title %></b><br />
         <%= listing.description %> <br />
 
         &#8377;<%= listing.price.toLocaleString("en-IN") %> <br />
@@ -32,5 +31,49 @@
     <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE">
       <button class="btn btn-dark offset-5">Delete</button>
     </form>
+  </div>
+  <div class="col-9 offset-3">
+    <hr />
+    <h4>Leave a review</h4>
+    <form
+      action="/listings/<%= listing._id %>/reviews"
+      method="POST"
+      novalidate
+      class="needs-validation"
+    >
+      <div class="mb-3 mt-3">
+        <label class="form-label" for="rating">Rating</label>
+        <input
+          class="form-range"
+          type="range"
+          min="1"
+          max="5"
+          id="rating"
+          name="review[rating]"
+        />
+      </div>
+      <div class="mb-3 mt-3">
+        <label class="form-label" for="comment">Comment</label>
+        <textarea
+          class="form-control"
+          name="review[comment]"
+          id="comment"
+          cols="30"
+          rows="5"
+          required
+        ></textarea>
+        <div class="invalid-feedback">
+          Please Submit add Some Comment for review.
+        </div>
+      </div>
+      <button class="btn btn-outline-dark mb-3">Submit</button>
+    </form>
+    <hr />
+    <h4>All Reviews</h4>
+    <ul>
+      <%for(review of listing.reviews){%>
+      <li><%=review.comment%>, <%= review.rating %></li>
+      <%}%>
+    </ul>
   </div>
 </div>

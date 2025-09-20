@@ -20,6 +20,12 @@ const listingSchema = new Schema({
   price: Number,
   location: String,
   country: String,
+  reviews: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Review", // jab Hum populate use karenge, to ye ObjectId ke through pura review ka data le aayega.
+    },
+  ],
 });
 
 const Listing = mongoose.model("Listing", listingSchema);

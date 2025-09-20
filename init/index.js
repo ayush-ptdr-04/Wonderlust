@@ -4,7 +4,7 @@ const initData = require("../init/data.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 main()
-  .then(() => console.log("connection succeful"))
+  .then(() => console.log("connection succefull"))
   .catch((err) => {
     console.log(err);
   });
