@@ -163,3 +163,25 @@ app.get('/data', asyncWrap(async (req, res, next) => {
 - [Handling-Deletion] :- delet both parent and child document, using Middlwares.
   - pre ;- run before the query is executed.
   - post :- run after the query is executed.
+
+# Phase-2 part-a Review
+
+- Create Review Model :- first i created review model and export it ,now review model use in listing and store review object_id(using type: Schema.Types.ObjectId, and ref:"Review" ) in reviews array
+
+- create Reviews :- in show.ejs creat form for rating and comment and after submission, it give POST rqst = this is add reviews in Review midel and also add in particular listing as review_id
+
+- Validation-Reviews :- befor submission of review we check client side validations is fullFill or not so we use add bootStrap classes and for server side we cret JOI schema for validate review and wrapAsync use for cath errors.
+
+- render-Reviews :- in show.ejs we extract listing.review.populate() it is expand the id and give all data of reviews. and print in each review in show.ejs
+
+- styling-Reviews :- for styling we use bootStrap classes.
+
+- Delete-Review :- for delete reviews add btn in below review and it give delete reqst on path "..." this route first pull the review id from listing and then delete review form Review.
+
+- delete Listing with reviews also:- when a findAndDelt() is trigger with POST mthod with a listing , then a route is triggerd in listing Schema and this route will check in listing :- lisiting.review if any review_id is find in this lisitng route will delete all reviews of this particular listing.
+
+# Phase-2 part-b
+
+- Express-Router :- it is orgnize oure code using Router, it makes code strctured and readable, we created route>listing&schema.js and add all routes in this file accordingaly and export and coman paths are cut and use in app.js
+
+- cookies:-
