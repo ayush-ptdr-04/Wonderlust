@@ -184,4 +184,29 @@ app.get('/data', asyncWrap(async (req, res, next) => {
 
 - Express-Router :- it is orgnize oure code using Router, it makes code strctured and readable, we created route>listing&schema.js and add all routes in this file accordingaly and export and coman paths are cut and use in app.js
 
-- cookies:-
+- cookies:- it is the blocks of data ,used to verify and store user information in small chunks.
+
+  - send-Cookies :- res.cookies("key","value");
+  - parser-Cookies :- npm i cookie-parser -> require and (app.use with send some secretCode). -> console.log(req.cookies).
+  - signed-cookies :- send cookies with label {signed:true} now it is signed cookies.
+  - varify-cookies :- console.log(req.signedCookies) if any temporying with value, then it returns false or emptyObj.
+
+# Phase-2 part-c
+
+- state :- state is req related information like any-action:- add items in card.
+- session :- intraction b/w client & server is called single-session. and store temprory data about the session info in temporarily memory.
+- protocol :- how to go req and res.
+- state-full protocol(FTP) :- require, server to save the status & session-information(save the state).
+- state-less protocol(http) :- mens no save states.
+
+-> Express-session :- it is a middlware for expressJS application that enables server side session management.and creats session_id for single session. -> <npm install express-session> -> require -> app.use(session({})); -> now we can use in routs, req.sessio......;
+
+-> we can use MemoryStore for devlopment only, story only session_id in server side. all data is not save in server side.
+
+-> <Connect-flash> :- ye ke middlware hai jo Express+session ke saath use hota hai, ye temporary message show krta hai sirf ek baar. suucces or error messages ko show krne me kaam aata hai. -> <npm install connect-flash
+
+> const express = require("express");
+> const session = require("express-session");
+> const flash = require("connect-flash"); -> app.use(flash()); -> {req.flash("error", "Invalid password!");}
+
+-> res.locals() ;- temporary messages ko ko particular response ke hisab se save krta hai like:- "err" "error-ocuurd";
