@@ -210,3 +210,5 @@ app.get('/data', asyncWrap(async (req, res, next) => {
 > const flash = require("connect-flash"); -> app.use(flash()); -> {req.flash("error", "Invalid password!");}
 
 -> res.locals() ;- temporary messages ko ko particular response ke hisab se save krta hai like:- "err" "error-ocuurd";
+
+> Implement session(add cookie option to store time-line of session) & connect-flash , use bootstrap for style alerts and store in res.locals -> error & success.
