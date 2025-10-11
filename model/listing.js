@@ -27,6 +27,10 @@ const listingSchema = new Schema({
       ref: "Review", // jab Hum populate use karenge, to ye ObjectId ke through pura review ka data le aayega.
     },
   ],
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
 });
 
 listingSchema.post("findOneAndDelete", async (listing) => {
