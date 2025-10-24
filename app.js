@@ -80,7 +80,7 @@ app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
 app.use("/", userRouter);
 
-app.all("/*any", (req, res, next) => {
+app.use((req, res, next) => {
   next(new ExpressError(404, "Page Not Found!"));
 });
 
