@@ -199,6 +199,12 @@ app.get('/data', asyncWrap(async (req, res, next) => {
 - state-full protocol(FTP) :- require, server to save the status & session-information(save the state).
 - state-less protocol(http) :- mens no save states.
 
+## Note: DB connection behavior
+
+- During development this project prefers a local MongoDB instance at `mongodb://127.0.0.1:27017/wanderlust` to avoid Atlas connectivity/TLS issues.
+- If you need to use Atlas in development set `FORCE_ATLAS=true` and ensure `ATLASDB_URL` is present in your environment. In production the app will use `ATLASDB_URL` when provided.
+
+
 -> Express-session :- it is a middlware for expressJS application that enables server side session management.and creats session_id for single session. -> <npm install express-session> -> require -> app.use(session({})); -> now we can use in routs, req.sessio......;
 
 -> we can use MemoryStore for devlopment only, story only session_id in server side. all data is not save in server side.
@@ -214,5 +220,3 @@ app.get('/data', asyncWrap(async (req, res, next) => {
 > Implement session(add cookie option to store time-line of session) & connect-flash , use bootstrap for style alerts and store in res.locals -> error & success.
 
 # Phase-2 part-d
-
-

@@ -21,6 +21,7 @@ const listingRouter = require("./routes/listing.js");
 const userRouter = require("./routes/user.js");
 
 const dbUrl = process.env.ATLASDB_URL;
+// const dbUrl = "mongodb://127.0.0.1:27017/wanderlust";
 
 main()
   .then(() => console.log("connection successful ❇️"))
@@ -89,6 +90,9 @@ app.use((req, res, next) => {
 //   let result = await User.register(user, "helloayush");
 //   res.send(result);
 // });
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
 
 app.use("/listings", listingRouter);
 app.use("/listings/:id/reviews", reviewRouter);
